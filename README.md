@@ -6,7 +6,7 @@ a customizable roulette wheel maker that lets you create, save, and share wheels
 - **customizable slices:** 2-12 slices with custom labels and colors. the pie of your eye is yours to... try?
 - **!multiple storage options!** 
   - **me wheels:** save to your browser (private)
-  - **we wheels:** save to Supabase (shared with everyone)
+  - **we wheels:** save to Supabase (shared with everyone, not editable once saved)
 - **color palettes!** choose from default, pastel goth, or woodsy themes (or make your own!)
 - **realistic animation!** physics-based spinning with friction
 - **mobile friendly:** (should) work on all devices
@@ -19,3 +19,6 @@ a customizable roulette wheel maker that lets you create, save, and share wheels
 
 ## no dependencies
 everything runs in the browser - just open `index.html` and start creating wheels.
+
+## final note
+don't worry, I'm well aware there is a Supabase key hardcoded into the app.js. this is an anon key, and RLS is enabled on the database. it makes the We Wheels uneditable, but that isn't really a big deal for a silly lil' project like this.
