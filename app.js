@@ -1,7 +1,7 @@
-// =====================
-// Supabase Setup
-// =====================
+// ----------
+// supabase setup
 const supabaseUrl = 'https://epxtpexfozbwdfmokdrp.supabase.co';
+// public 'anon' key - database protected by RLS
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVweHRwZXhmb3pid2RmbW9rZHJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwMTUzNDIsImV4cCI6MjA2OTU5MTM0Mn0.Hv-RmjrWhO1a8lE_AkVzYnPZ6IXYBrJSOGoFjQg7HJQ';
 let supabase = null;
 
@@ -19,19 +19,20 @@ function initSupabase() {
 }
 
 initSupabase();
-setTimeout(initSupabase, 1000);
+window.onload(initSupabase);
+window.onload = function() {
+  initSupabase();
+};
 
-// =====================
-// Canvas & Wheel Setup
-// =====================
+// ----------
+// canvas & wheel setup
 const canvas = document.getElementById('wheel');
 const ctx = canvas.getContext('2d');
 const rad = canvas.width / 2;
 const TAU = 2 * Math.PI;
 
-// =====================
-// DOM Elements
-// =====================
+// ----------
+// DOM elements
 const spinButton = document.getElementById('spin');
 const sliceSlider = document.getElementById('sliceCount');
 const sliceLabel = document.getElementById('sliceCountLabel');
@@ -50,9 +51,8 @@ const specificColorsButton = document.getElementById('specificColors');
 const specificColorsContainer = document.getElementById('specificColorsContainer');
 const sliceButtonsContainer = document.getElementById('sliceButtonsContainer');
 
-// =====================
-// Palette & Sector Data
-// =====================
+// ----------
+// palette & sector data
 let arc;
 const paletteNames = ['Default', 'Pastel Goth', 'Woodsy'];
 let currentPalette = 'Pastel Goth';
@@ -61,9 +61,8 @@ let shuffledPalette = [];
 let customLabels = {};
 let sectors = [];
 
-// =====================
-// Pickr Color Picker
-// =====================
+// ----------
+// pickr color picker
 let currentSlice = 0;
 let sliceButtons = [];
 let pickr = null;
@@ -133,9 +132,8 @@ document.getElementById('colorPickerModal').addEventListener('click', (e) => {
   }
 });
 
-// =====================
-// Spin Physics
-// =====================
+// ----------
+// spin physics
 let ang = 0;
 let angVel = 0;
 let angVelMax = 0;
@@ -145,9 +143,8 @@ let isSpinning = false;
 let isAccelerating = false;
 let animFrame = null;
 
-// =====================
-// Palette Initialization
-// =====================
+// ----------
+// palette initialization
 function generatePalette(name) {
   const count = 16;
   switch (name) {
@@ -249,9 +246,8 @@ function initPalettes() {
   });
 }
 
-// =====================
-// Drawing Functions
-// =====================
+// ----------
+// drawing functions
 function drawSector(sector, i) {
   const startAngle = arc * i - Math.PI / 2;
   const endAngle = arc * (i + 1) - Math.PI / 2;
@@ -366,9 +362,8 @@ function rotate() {
   spinButton.style.background = sector.color;
 }
 
-// =====================
-// Spin Logic
-// =====================
+// ----------
+// spin logic
 function getSectorIndex() {
   const adjusted = (ang - Math.PI / 2 + TAU) % TAU;
   return Math.floor(sectors.length - (adjusted / TAU) * sectors.length) % sectors.length;
@@ -404,9 +399,8 @@ function frame() {
   animFrame = requestAnimationFrame(frame);
 }
 
-// =====================
-// Editor & UI Logic
-// =====================
+// ----------
+// editor & UI logic
 const MAX_SLICES = 12;
 let editorInputs = [];
 
@@ -625,9 +619,8 @@ function showSpinHistogram() {
   histogramContainer.style.display = 'block';
 }
 
-// =====================
-// Event Listeners
-// =====================
+// ----------
+// event listeners
 function handleEditToggle() {
   const isVisible = getComputedStyle(editControls).display !== 'none';
   editControls.style.display = isVisible ? 'none' : 'block';
@@ -651,7 +644,7 @@ function handleSliceSlider(e) {
 function handlePaletteShuffle(e) {
   currentPalette = e.target.value;
   shuffledPalette = shuffleArray(palettes[currentPalette]);
-  // Keep existing sector colors; only affect new slots if the count increases later
+  // keep existing sector colors; only affect new slots if the count increases later
   drawWheel();
   updateEditor();
 }
@@ -746,9 +739,8 @@ function resetToDefaultWheel() {
   histogramContainer.style.display = 'none';
 }
 
-// =====================
-// Initialization
-// =====================
+// ----------
+// initialization
 function initialize() {
   initPalettes();
   shuffledPalette = shuffleArray(palettes[currentPalette]);
@@ -770,5 +762,6 @@ function initialize() {
   showHistogramButton.addEventListener('click', showSpinHistogram);
   specificColorsButton.addEventListener('click', handleSpecificColors);
 }
+
 
 initialize();
