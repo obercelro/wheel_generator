@@ -1,24 +1,21 @@
-# Custom Roulette Wheel
+# custom roulette wheel
 
-A customizable roulette wheel maker that lets you create, save, and share wheels for any purpose.
+a customizable roulette wheel maker that lets you create, save, and share wheels for any purpose.
 
-## Features
-- **Customizable Slices:** 2-12 slices with custom labels and colors
-- **Multiple Storage Options:** 
-  - **Me Wheels:** Save to your browser (private)
-  - **We Wheels:** Save to Supabase (shared with everyone)
-- **Color Palettes:** Choose from Default, Pastel Goth, or Woodsy themes
-- **Realistic Animation:** Physics-based spinning with friction
-- **Mobile Friendly:** Works on all devices
+## what's it got?
+- **customizable slices:** 2-12 slices with custom labels and colors. the pie of your eye is yours to... try?
+- **!multiple storage options!** 
+  - **me wheels:** save to your browser (private)
+  - **we wheels:** save to Supabase (shared with everyone)
+- **color palettes!** choose from default, pastel goth, or woodsy themes (or make your own!)
+- **realistic animation!** physics-based spinning with friction
+- **mobile friendly:** (should) work on all devices
 
-## Usage
-1. **Create a Wheel:** Use the Edit button to customize slices, colors, and labels
-2. **Choose Storage:** Select "Me Wheels" for private storage or "We Wheels" for shared storage
-3. **Save & Load:** Save your wheels and load them back anytime
-4. **Spin:** Click SPIN to randomly select a slice
+## how does it work?
+1. **create a wheel:** use the Edit button to change number of slices, colors, and labels
+2. **choose storage:** select "Me Wheels" for private storage or "We Wheels" for shared storage
+3. **save & load:** save your wheels and load them back anytime
+4. **spin:** Click SPIN to spin! that! wheel!
 
-## No Dependencies
-Everything runs in the browser - just open `index.html` and start creating wheels.
-
----
-Perfect for decision making, games, or any random selection needs.
+## no dependencies
+everything runs in the browser - just open `index.html` and start creating wheels.
