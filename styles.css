@@ -247,3 +247,12 @@ select {
   width: 100%;
   min-width: 0;
 }
+
+.button-row {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
