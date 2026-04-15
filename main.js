@@ -172,11 +172,10 @@ function updateEditor() {
 
 // Handlers
 function handleEditToggle() {
-  editControls.classList.toggle('hidden');
+editControls.classList.toggle('hidden');
   editorDiv.classList.toggle('hidden');
   editorDiv.classList.toggle('editor-grid');
   editorButtons.classList.toggle('hidden');
-  editorButtons.classList.toggle('flex-center');
   saveControls.classList.toggle('hidden');
   histogramContainer.classList.add('hidden');
   
@@ -244,7 +243,7 @@ function showSpinHistogram() {
   }
   html += `</div>`;
   histogramContainer.innerHTML = html;
-  histogramContainer.style.display = 'block';
+  histogramContainer.classList.remove('hidden');
 }
 
 // Save/Load Logic
