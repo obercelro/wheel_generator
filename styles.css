@@ -229,6 +229,10 @@ select {
   display: none !important;
 }
 
+.flex-center {
+  display: flex !important;
+}
+
 .editor-grid {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr);
@@ -238,4 +242,9 @@ select {
   box-sizing: border-box;
   margin-top: 10px;
   justify-items: stretch;
+}
+
+.editor-input {
+  width: 100%;
+  min-width: 0;
 }
