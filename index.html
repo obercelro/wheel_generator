@@ -15,7 +15,7 @@
 
           <div id="controls">
         <button id="editToggle">Edit</button>
-        <div id="saveControls" style="display:none;">
+        <div id="saveControls" class="hidden">
           <div style="display:flex; align-items:center; gap:8px; justify-content:center; flex-wrap:wrap;">
             <select id="storageType" title="Wheel Source">
               <option value="local">Me Wheels</option>
@@ -27,7 +27,7 @@
             <button id="saveWheel">Save</button>
           </div>
         </div>
-      <div id="editControls">
+      <div id="editControls" class="hidden">
         <label for="sliceCount">Slices: <span id="sliceCountLabel">7</span></label><br />
         <input type="range" id="sliceCount" min="2" max="12" value="7" />
         <br />
@@ -35,13 +35,13 @@
         <select id="paletteSelect"></select>
       </div>
       <div id="editor"></div>
-      <div id="editorButtons" style="display:none; flex-direction:column; align-items:center; gap:10px; margin-top:10px;">
+      <div id="editorButtons" class="hidden" style="flex-direction:column; align-items:center; gap:10px; margin-top:10px;">
         <button id="shuffleColors">Shuffle Colors!</button>
         <button id="specificColors">Me Pick</button>
         <button id="showHistogram">100 Spins!</button>
       </div>
       <div id="specificColorsContainer" style="display:none; margin-top:10px;"></div>
-      <div id="histogramContainer" style="display:none; margin-top:20px;"></div>
+      <div id="histogramContainer" class="hidden" style="margin-top:20px;"></div>
       <div id="colorPickerModal" class="hidden-overlay">
         <div id="pickrModalContent">
           <button id="closePickrButton">Close</button>
