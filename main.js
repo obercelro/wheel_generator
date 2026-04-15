@@ -134,13 +134,12 @@ document.getElementById('colorPickerModal').addEventListener('click', (e) => {
 function createEditorInputs() {
   editorDiv.innerHTML = '';
   editorInputs = [];
+  
   for (let i = 0; i < MAX_SLICES; i++) {
     const input = document.createElement('input');
     input.type = 'text';
-    input.style.width = '100%';
-    input.style.minWidth = '0';
+    input.classList.add('editor-input', 'hidden'); // Much cleaner!
     input.value = wheelState.customLabels[i] || `Slice ${i + 1}`;
-    input.style.display = 'none';
     
     input.addEventListener('input', (e) => {
       const newLabel = e.target.value;
@@ -154,39 +153,36 @@ function createEditorInputs() {
     editorInputs.push(input);
     editorDiv.appendChild(input);
   }
-  // Using your direct styles for now, but adding the CSS classes here later is highly recommended!
-  editorDiv.style.display = 'none';
-  editorDiv.style.gridTemplateColumns = 'repeat(4, 1fr)';
-  editorDiv.style.gap = '8px';
-  editorDiv.style.width = '100%';
-  editorDiv.style.maxWidth = '520px';
-  editorDiv.style.boxSizing = 'border-box';
-  editorDiv.style.marginTop = '10px';
-  editorDiv.style.justifyItems = 'stretch';
+  
+  editorDiv.classList.add('hidden');
 }
 
 function updateEditor() {
   for (let i = 0; i < MAX_SLICES; i++) {
     if (i < wheelState.sectors.length) {
-      editorInputs[i].style.display = 'block';
+      editorInputs[i].classList.remove('hidden');
       editorInputs[i].value = wheelState.sectors[i].label;
       editorInputs[i].style.background = wheelState.sectors[i].color;
       editorInputs[i].style.color = wheelState.currentPalette === 'Pastel Goth' ? '#333' : '#fff';
     } else {
-      editorInputs[i].style.display = 'none';
+      editorInputs[i].classList.add('hidden');
     }
   }
 }
 
 // Handlers
 function handleEditToggle() {
-  const isVisible = getComputedStyle(editControls).display !== 'none';
-  editControls.style.display = isVisible ? 'none' : 'block';
-  editorDiv.style.display = isVisible ? 'none' : 'grid';
-  editorButtons.style.display = isVisible ? 'none' : 'flex';
-  saveControls.style.display = isVisible ? 'none' : 'block';
-  histogramContainer.style.display = 'none';
-  if (!isVisible) updateEditor();
+  editControls.classList.toggle('hidden');
+  editorDiv.classList.toggle('hidden');
+  editorDiv.classList.toggle('editor-grid');
+  editorButtons.classList.toggle('hidden');
+  editorButtons.classList.toggle('flex-center');
+  saveControls.classList.toggle('hidden');
+  histogramContainer.classList.add('hidden');
+  
+  if (!editorDiv.classList.contains('hidden')) {
+    updateEditor();
+  }
 }
 
 function handleSliceSlider(e) {
