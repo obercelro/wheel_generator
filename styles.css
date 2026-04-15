@@ -225,4 +225,17 @@ select {
   font-size: min(14px, 3.5vw);
 }
 
+.hidden {
+  display: none !important;
+}
 
+.editor-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 520px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  justify-items: stretch;
+}
