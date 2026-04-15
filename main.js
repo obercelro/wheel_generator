@@ -201,6 +201,11 @@ function handleSliceSlider(e) {
 function handlePaletteShuffle(e) {
   wheelState.currentPalette = e.target.value;
   wheelState.shuffledPalette = shuffleArray(wheelState.palettes[wheelState.currentPalette]);
+
+  wheelState.sectors.forEach((sector, i) => {
+    sector.color = wheelState.shuffledPalette[i % wheelState.shuffledPalette.length];
+  });
+  
   drawWheel();
   updateEditor();
 }
